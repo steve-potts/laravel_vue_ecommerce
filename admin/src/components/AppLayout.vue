@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-    import {ref} from 'vue';
+    import {ref, onMounted, onUnmounted} from 'vue';
     import Sidebar from "./Sidebar.vue";
     import TopHeader from "./TopHeader.vue";
 
@@ -28,6 +28,21 @@
     function toggleSidebar() {
         sidebarOpened.value = !sidebarOpened.value;
     }
+
+    onMounted(() => {
+        handleSidebarOpened();
+        window.addEventListener('resize', handleSidebarOpened);
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', handleSidebarOpened);
+    })
+
+    function handleSidebarOpened() {
+        sidebarOpened.value = window.outerWidth > 768;
+
+    }
+
 </script>
 
 <style scoped>
