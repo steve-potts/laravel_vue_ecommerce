@@ -2,7 +2,7 @@
 
 <template>
 
-    <div class="w-[200px] bg-indigo-700 text-gray-300 py-4 px-2">
+    <div class="w-[200px] transition-all bg-indigo-700 text-gray-300 py-4 px-2">
         <router-link
             :to="{name: 'app.dashboard'}"
             class="flex items-center transition-colors
@@ -16,7 +16,7 @@
             </span>
         </router-link>
         <router-link
-            :to="{name: 'app.dashboard'}"
+            :to="{name: 'app.products'}"
             class="flex items-center transition-colors
                         py-1 px-2 rounded hover:bg-black/30 mb-2"
         >

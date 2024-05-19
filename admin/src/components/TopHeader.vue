@@ -2,24 +2,24 @@
 
 <template>
     <header class="flex justify-between items-center h-14 shadow bg-white">
-        <button class="p-4">
+        <button @click="emit('toggle-sidebar')" class="ml-2 flex items-center justify-center rounded transition-colors w-8 h-8 hover:bg-black/10">
             <MenuIcon class="w-6"/>
         </button>
         <div class="px-4">
            <Menu as="div" class="relative inline-block text-left">
-                <div>
-                    <MenuButton class="flex items-center">
-                        <img alt="" src="https://randomuser.me/api/portraits/men/1.jpg"
-                            class="rounded-full w-12 mr-2 mt-1"
-                        />
-                        <small>John Smith</small>
 
-                        <ChevronDownIcon
-                            class="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
-                            aria-hidden="true"
-                        />
-                    </MenuButton>
-                </div>
+                <MenuButton class="flex items-center">
+                    <img alt="" src="https://randomuser.me/api/portraits/men/1.jpg"
+                        class="rounded-full w-12 mr-2 mt-1"
+                    />
+                    <small>John Smith</small>
+
+                    <ChevronDownIcon
+                        class="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
+                        aria-hidden="true"
+                    />
+                </MenuButton>
+
 
                 <transition
                     enter-active-class="transition duration-100 ease-out"
@@ -75,6 +75,9 @@
 <script setup>
     import { MenuIcon, ChevronDownIcon, LogoutIcon, UserIcon } from "@heroicons/vue/outline";
     import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+
+    const emit = defineEmits(['toggle-sidebar'])
+
 </script>
 
 <style scoped>
